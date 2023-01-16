@@ -1,12 +1,7 @@
 package com.imclpiv.imc;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import com.imclpiv.imc.model.Usuario;
-import com.imclpiv.imc.repository.UsuarioRepository;
 
 @SpringBootApplication
 public class ImcApplication {
@@ -14,16 +9,32 @@ public class ImcApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ImcApplication.class, args);
 	}
-	@Bean
-	CommandLineRunner initDatabase(UsuarioRepository usuarioRepository){
-		return args -> {
-			usuarioRepository.deleteAll();
+	// @Bean
+	// CommandLineRunner initDatabase(UsuarioRepository usuarioRepository, ImcRepository imcRepository, HistoricoRepository historicoRepository){
+	// 	return args -> {
+	// 		usuarioRepository.deleteAll();
+	// 		imcRepository.deleteAll();
+	// 		historicoRepository.deleteAll();
 
-			Usuario u = new Usuario();
-			u.setEmail("mcardoso@gmail.com");
-			u.setNome("Maria Cardoso");
+	// 		Usuario u = new Usuario();
+	// 		u.setEmail("mcardoso@gmail.com");
+	// 		u.setNome("Maria Cardoso");
 
-			usuarioRepository.save(u);
-		};
-	}
+	// 		Imc i = new Imc();
+	// 		i.setAltura(1.80f);
+	// 		i.setPeso(68.5f);
+	// 		i.setSexo(true);
+
+	// 		Historico h = new Historico();
+	// 		h.setImc(i);
+	// 		u.setHistorico(h);
+
+
+
+
+	// 		usuarioRepository.save(u);
+	// 		imcRepository.save(i);
+	// 		historicoRepository.save(h);
+	// 	};
+	// }
 }
